@@ -1,0 +1,11 @@
+body {
+    background-color: #812f2b;
+    color: #fada50;
+}
+.container {
+    text-align: center;
+}
+#youwin-image, #gameover-image {
+    width: 250px;
+
+}
