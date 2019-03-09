@@ -1,11 +1,21 @@
 // Word list
-var selectableWords = ["porkypig", 
-                      "foghornleghorn", 
-                      "pepelepew", 
-                      "bugsbunny", 
-                      "sylvester", 
-                      "tweetybird", 
-                      "daffyduck"];
+var selectableWords = 
+[   
+    "PORKYPIG", 
+    "FOGHORNLEGHORN", 
+    "PEPELEPEW", 
+    "BUGSBUNNY", 
+    "SYLVESTER", 
+    "TWEETYBIRD", 
+    "DAFFYDUCK",
+    "ELMERFUDD",
+    "MARVINTHEMARTIAN",
+    "ROADRUNNER",
+    "SPEEDYGONZALES",
+    "TAZMANIANDEVIL",
+    "WILEECOYOTE",
+    "YOSEMITESAM",
+ ];
 //Sets max tries
 const maxTries = 10;
 //Stores the letters guessed by user
@@ -51,7 +61,6 @@ function updateDisplay() {
     document.getElementById("totalWins").innerText = wins;
 
     //Display how much of the word we've already guessed on screen
-    //Printing the array would add commas - so we concatenate a string from each value in the array.
     var guessingWordText = "";
     for (var i = 0; i < guessingWord.length; i++) {
         guessingWordText +=  guessingWord[i];
@@ -71,7 +80,7 @@ function evaluateGuess(letter) {
             positions.push(i);
         }
     } 
-    //If there are no indicies, remove a guess
+    //If there are no hits, remove a guess
     if(positions.length <= 0) {
         remainingGuesses--;
     } else {
@@ -89,7 +98,7 @@ function evaluateGuess(letter) {
             wins++;
             hasFinished = true;
         }
-    }; console.log();
+    }; 
 
 //checks for a loss
 function checkLoss() {
@@ -97,7 +106,7 @@ function checkLoss() {
         document.getElementById("gameover-image").style.cssText = "display: block";
         document.getElementById("pressKeyTryAgain").style.cssText = "display: block";
         hasFinished = true;
-    } console.log();
+    }
 
 }
 //Makes a guess
@@ -107,7 +116,7 @@ function makeGuess(letter) {
         if (guessedLetters.indexOf(letter) === -1) {
             guessedLetters.push(letter);
             evaluateGuess(letter); 
-        } console.log ();
+        } 
     }
 };
 
@@ -123,7 +132,7 @@ document.onkeydown = function(event) {
             checkWin();
             checkLoss();
         }
-    } console.log();
+    }
 };
 
 
